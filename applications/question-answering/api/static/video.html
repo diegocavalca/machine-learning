@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tensor Flow Object Detection from a video</title>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <style>
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        canvas{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index:1
+        }
+    </style>
+</head>
+<body>
+<video id="myVideo" crossOrigin="anonymous" src="https://webrtchacks.com/wp-content/uploads/2014/11/webrtcDogRemover-working.mp4" muted controls></video>
+<script id="objDetect" src="/static/objDetect.js" data-source="myVideo"  data-scoreThreshold="0.40"></script>
+</body>
+</html>

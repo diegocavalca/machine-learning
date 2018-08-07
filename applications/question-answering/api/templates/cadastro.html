@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Francis AI</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/portfolio-item.css') }}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Portfolio Item Heading -->
+      <h1 class="my-2">Francis AI<!--<small>Face Recognition</small>--></h1>
+
+        
+      <!-- Portfolio Item Row -->
+      <div class="row">
+
+        <div class="col-md-7">
+            <video id="myVideo" class="img-fluid" style="height:400px" autoplay></video>
+            <small class="status"></small>
+        </div>
+
+        <div class="col-md-5">
+          <small class="teste"></small>
+          <h3 class="my-3">Paciente</h3>
+                <p class="paciente-nome">( AGUARDANDO )</p>
+          <ul class="paciente-recog"></ul>
+          <button onclick="javascript:insertFace();">Cadastrar Face</button>
+      </div>
+      <!-- /.row -->
+
+      <!-- Related Projects Row --
+      <h3 class="my-4">Related Projects</h3>-->
+
+      <div class="row">
+      </div>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <script src="/static/local.js"></script>
+    <script type="text/javascript">
+    //Parameters
+    //const s = document.getElementById('objDetect');
+    const sourceVideo = 'myVideo';//s.getAttribute("data-source");  //the source video to use
+    const uploadWidth = 640;//s.getAttribute("data-uploadWidth") || 640; //the width of the upload file
+    const apiServer = window.location.origin; // * * * * *
+
+    //Video element selector
+    v = document.getElementById(sourceVideo);
+
+    //for starting events
+    let isPlaying = false,
+        gotMetadata = false;
+
+    // CADASTRO DO PACIENTE
+    //var nomePaciente = '';
+    var nomePaciente = prompt('Qual seu nome?');
+    function insertFace(){
+      $('.status').html('Se posicione, vamos começar...');
+      setTimeout(function(){
+        $('.status').html('Face capturada, inserindo no banco de dados...');
+        captureFrame();
+      },3000);
+    }
+
+
+    function captureFrame() {
+        //Set canvas sizes base don input video
+        drawCanvas.width = v.videoWidth;
+        drawCanvas.height = v.videoHeight;
+
+        imageCanvas.width = uploadWidth;
+        imageCanvas.height = uploadWidth * (v.videoHeight / v.videoWidth);
+
+        //Some styles for the drawcanvas
+        drawCtx.lineWidth = 4;
+        drawCtx.strokeStyle = "cyan";
+        drawCtx.font = "20px Verdana";
+        drawCtx.fillStyle = "cyan";
+
+        //Save and send the first image
+        imageCtx.drawImage(v, 0, 0, v.videoWidth, v.videoHeight, 0, 0, uploadWidth, uploadWidth * (v.videoHeight / v.videoWidth));
+        imageCanvas.toBlob(postFile, 'image/jpeg');
+    }
+    function postFile(file) {
+
+        $('.status').html('Face capturada, processando requisição...');
+
+        /*
+        console.log(apiServer);
+        console.log(file);
+        $.ajax({
+            type: 'POST',
+            url: '/insertface',
+            contentType: 'application/json;charset=UTF-8',
+            data : { 'nome':nomePaciente, 'frame': file },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+        */
+
+        //Set options as form data
+        let formdata = new FormData();
+        formdata.append("nome", nomePaciente);
+        formdata.append("face", file);
+        formdata.forEach((value,key) => {
+          console.log(key+" -> "+value)
+        });
+
+        let xhr = new XMLHttpRequest();
+        apiServerInsert = apiServer+'/newface'
+        xhr.open('POST', apiServerInsert, true);
+        //xhr.setRequestHeader('Content-Type', 'multipart/form-data; charset=utf-8');
+        //xhr.setRequestHeader("X-CSRFToken", csrftoken)
+        xhr.onload = function () {
+            var msg = ' ';
+            if (this.status === 200) {
+                console.log(this.response);
+                msg = 'Face cadastrada com sucesso, '+nomePaciente+'!';
+                //Save and send the next image
+                //imageCtx.drawImage(v, 0, 0, v.videoWidth, v.videoHeight, 0, 0, uploadWidth, uploadWidth * (v.videoHeight / v.videoWidth));
+                //imageCanvas.toBlob(postFile, 'image/jpeg');
+            }
+            else {
+                console.error(xhr);
+                msg = 'Ocorreu um erro, tente novamente ou contate o administrador.';
+            }
+            $('.status').html(msg);
+        };
+        xhr.send(formdata);
+    }
+
+    //create a canvas to grab an image for upload
+    let imageCanvas = document.createElement('canvas');
+    let imageCtx = imageCanvas.getContext("2d");
+
+    //create a canvas for drawing object boundaries
+    let drawCanvas = document.createElement('canvas');
+    document.body.appendChild(drawCanvas);
+    let drawCtx = drawCanvas.getContext("2d");
+
+    //Starting events
+
+    /*check if metadata is ready - we need the video size
+    v.onloadedmetadata = () => {
+        //console.log("video metadata ready");
+        gotMetadata = true;
+        if (isPlaying && nomePaciente)
+            captureFrame();
+    };
+
+    //see if the video has started playing
+    v.onplaying = () => {
+        //console.log("video playing");
+        isPlaying = true;
+        if (gotMetadata && nomePaciente) {
+            captureFrame();
+        }
+    };*/
+    </script>
+    <!--<script id="objDetect" src="/static/faceRecognition.js" data-source="myVideo" data-mirror="true" data-uploadWidth="1280" data-scoreThreshold="0.40"></script>-->
+    <script>
+
+    </script>
+
+  </body>
+
+</html>
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Francis App</title>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <style>
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            /* Mirror the local video */
+            transform: scale(-1, 1);            /*For Firefox (& IE) */
+            -webkit-transform: scale(-1, 1);     /*for Chrome & Opera (& Safari) */
+        }
+        canvas{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index:1
+        }
+    </style>
+</head>
+<body>
+<video id="myVideo" autoplay></video>
+<script src="/static/local.js"></script>
+<script id="objDetect" src="/static/faceRecognition.js" data-source="myVideo" data-mirror="true" data-uploadWidth="1280" data-scoreThreshold="0.40"></script>
+</body>
+</html>-->
