@@ -1,4 +1,0 @@
-(defun elementosEmComum (L1 L2)
-  (not (null (inter L1 L2)))
-)
-   

@@ -1,6 +1,0 @@
-(defun SQUASH (L)
-  (cond ((null L) '())
-        ((atom L) L)
-        (t (SQUASH (cdr L)))
-  )
-)
