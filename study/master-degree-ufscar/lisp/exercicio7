@@ -1,0 +1,8 @@
+(defun SQUASH (L)
+    (cond ((null L) nil)
+          ((atom L) (list L))
+          (t (append (SQUASH (car L)) 
+                     (SQUASH (cdr L)) )
+          )
+    )
+)

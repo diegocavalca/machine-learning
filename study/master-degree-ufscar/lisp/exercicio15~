@@ -1,0 +1,7 @@
+(defun replace1 (f r L)
+  (cond ((null L) nil)
+        ((equal f (car L))
+         (cons r (replace1 (cdr L))))
+        (T (replace f r (cdr L)))
+        )
+)

@@ -1,0 +1,20 @@
+(defun tri-retanSol-SOLUCAO (x y z)
+  (let* ((somaQuadrados (+ (* y y) (* z z)))
+        (quadradoMaior (* x x))
+        (doisPorcento (* quadradoMaior 0.02)))
+    (if (< (abs (- somaQuadrados quadradoMaior)) doisPorcento) t
+      nil) )
+)
+
+(defun quadrado (x)
+  (* x x))
+
+(defun tri-retan (L1 L2 L3)
+  (let* ((somaL2L3 (+ (quadrado L2) (quadrado L3)))
+         (maiorQ (* L1 L1))
+         (dois_pc (* maiorQ 0.02)))
+    (if (< (abs (- somaL2L3 maiorQ)) dois_pc) 
+        t
+      nil) 
+  )
+)

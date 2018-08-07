@@ -1,0 +1,27 @@
+;;;; Versão Recursiva
+(defun cartesianoR (L1 L2)
+  (cond ((null L1) nil)
+        (T (append (combina2 (car L1) L2) 
+                   (cartesianoR (cdr L1) L2)))
+  )
+)
+
+;; Função auxiliar que combina elemento 'e' com elementos de L
+(defun combina (e L)
+  (cond ((null L) nil)
+        (T (append (list (list e (car L)))
+                   (combina e (cdr L))))
+  )
+)
+
+
+;;;; Versão Iterativa
+(defun cartesianoI (L1 L2)
+  (let ((produto nil))
+    (dolist (e1 L1)
+      (dolist (e2 L2)
+        (setq produto (append produto (list (list e1 e2)) ))
+        )
+     )
+   produto)
+)

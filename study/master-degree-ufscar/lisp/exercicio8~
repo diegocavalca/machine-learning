@@ -1,0 +1,6 @@
+(defun esta_em (e L)
+  (cond ((null L) nil)
+        ((equal (car L) e) T)
+        (T (esta_em e (cdr L)))
+  )
+)

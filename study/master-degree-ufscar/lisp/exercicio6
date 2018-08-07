@@ -1,0 +1,7 @@
+(defun estranho (l)
+  (cond ((null l) nil)
+        ((atom l) l)
+        (t (cons (estranho (car l))
+                 (estranho (cdr l))))
+  )
+)

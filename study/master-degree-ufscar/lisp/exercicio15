@@ -1,0 +1,32 @@
+;;; Versao Recursiva
+(defun replace1 (f r L)
+  (cond ((null L) nil)
+        ((equal f (car L))
+         (cons r (replace1 f r (cdr L))))
+        (T (cons (car L) 
+                 (replace1 f r (cdr L))))
+  )
+)
+
+;;; Versao Iterativa
+(defun replace2 (f r L)
+  (let ((resultado '()))
+    (dolist (elem L)
+      (if (equal f elem)
+          (setq resultado (append resultado (list r) ))
+        (setq resultado (append resultado (list elem) ))
+      )  
+    )
+  resultado
+  )
+)
+
+(defun replace3-SOLUCAO (elemento1 elemento2 lista) 
+  (let ((lista2 nil))
+    (dolist (elem lista lista2)
+      (setq lista2
+      (if (equal elemento1 elem)
+              (append lista2 (list elemento2))
+              (append lista2 (list elem)))))
+    lista2) 
+)

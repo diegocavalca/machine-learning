@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "ds-linx",
+  "private_key_id": "a60766b872aeaf1681267237db286dcc53a5f81f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC5xXBOmBNkkw95\n1xnk69cS4EBuFucS4JUSJSlbh0ssmylW1lfpSmO6mPm82KwLs6ezdyfeZuZEz9Tf\nch+HN3PW/4c5ZS65FZUfH5ukbxD4TFOdf2IxjFmyC0cP/uylRTRsVaDUakW65joL\n3R6FDT+Se9+q0UJ7pmwKhipQMXmuRmvqB1aHMVyiPz4qUFshMj+3gJ8GB3NLbH1d\nabMiD2ctBGv/R9kXLzIkwc270kbutR/PyH3wWRQaDj8yrUYD8mt1RCA2p3vfAV80\nnrl4vMMGmFU8K4+XrvJvpPwT+YJf+Z7JN/76JKOyQN5i4Ty2uFiTIzoUICxPCk+V\nGN7QCsXlAgMBAAECggEAC9n5uTngetka8qXzY/Rbyzt9QMi7QywKtpaiVdGCzTy0\n3XJdN2fkhuH9hLu59iEnAL8ITxr3c8pihULNmh3CiSPSJ6o52drzoYGtt0bSqVSN\nPQ4EYK7YhhBMH0wfIsgQeRzZXtPM0QihCWK48LoQpTK76TTibesHF4DJsEYHwkNm\nCE+Tk8GJm6ommGoya1fHpjKdZvQ1Bs++dt30f8N8bREUHx8kuztJpI7Gf9+8YqOB\nbHFvRFPvg1KjNfLvyeWNUBoTrvIptN3fa3LW7YIu4XXWU17x5AKG12xbZRRMumhF\nVTx8DU1RbtTTqseuS6lvWczuJ8TtcZL80q1tMkdxHQKBgQDekIKWXyT7HWvq5qk4\nidXOG+K/hSOnpmLBR89yo/Vg88nEFuxzy7IrpyTpkzRZ6ebKCkPBxY2gQqpmUG7X\nzzSZYrEVBr3IDvkgkSjBouag0EpckVt7jQ59MlqKvWfMGboozN1nR9DBnTE5onOb\nMXwm1RRknlwTWSy1AHlH0IufEwKBgQDVreqkpONVwBw7x161/59eMxT9GonKHODB\nX7nDPAk8YLDwg29N4d3WMK7joQpojoR9FX4j19EIvEGWWk4+ZWXh5BPSfMPiSK4J\nSb5wzZ/7qNIeEM3rU6Xa8chnFg1YjNhtgUtEf7rDw7uLjJtdWea3ovozxYr1HEqR\nWv3EsXOOJwKBgQCbmFnDOKcI66u7oCBjx3Dy0+n0zOZ9WUQnLcXotplge27uKLyL\nw7c+725N4TyzM2PGkeCGwk7d4F1yg/7J3zE9npKASaM6DsW6L+FXZkRn3tZt2q0j\nNh0QB7jmz72WIdJUncyXXMyj3vo/+cNqlvDd0Q+dvFxQpoIr1DX1r+U8gwKBgFAL\nNEi008w9iNYD20DGHwcEj6o4lME3jCIkH8w44yTQ+7c9JSbBo34nAnyWyPVd3deV\ng4kdwVpKWy9daM4K4d16uMoynpZXr4ofK83J2VJGbV+B4AF1dj3MMMwdAKbZLAHp\nWy6vwmCvI8QkydZwZPMJhDx8lY84J97HfSR/bNAlAoGADappKQtXObbhwwviPhDI\nNE858mBRk2ZEqgsNhiQRrG3BecVue9X6NkOszfnx5WxhpzaFREUYOJ0rKv8Q1AR7\nQSAfav+3EAYkCNbWCv5HFqxBvrLeKISXnkdxUZXHdrNSgBvi15AAnvlo6KBgMy2E\nKj5/8IdDCC4yEQuEpOBQ5jc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "zurve-speech@ds-linx.iam.gserviceaccount.com",
+  "client_id": "112562709672768656410",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/zurve-speech%40ds-linx.iam.gserviceaccount.com"
+}

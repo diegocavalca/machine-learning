@@ -1,0 +1,6 @@
+(defun uniao (L1 L2)
+  (cond ((null L1) L2)
+        ((null L2) L1)
+        ((member (car L1) L2)
+         (cons (car L1) (uniao (cdr L1) L2)))
+        (T 

@@ -1,0 +1,5 @@
+(defun circulo (R)
+  (list (* 2 PI R)
+        (* PI (* R R))
+  )
+)

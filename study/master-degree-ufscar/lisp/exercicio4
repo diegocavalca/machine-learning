@@ -1,0 +1,6 @@
+(setq PI 3.14)
+(defun circulo (R)
+  (list (* 2 PI R)
+        (* PI (* R R))
+  )
+)
